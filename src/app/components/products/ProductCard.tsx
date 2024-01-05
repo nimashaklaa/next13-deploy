@@ -6,7 +6,9 @@ import {FormatPrice} from "@/app/utils/formatPrice";
 import {useRouter} from "next/navigation";
 import {TruncateText} from "@/app/utils/TruncateText";
 import {product} from "@/app/utils/product";
-import {useState} from "react";
+import {useCallback, useState} from "react";
+import {SetQuantity} from "@/app/components/products/SetQuantity";
+import {Button} from "@/app/components/Button";
 
 
 type ProductCardProps ={
@@ -17,8 +19,14 @@ export type CartProductType ={
     name:string,
     brand:string,
     quantity:number,
-    price:number
+    price:number,
+    selectedImg: SelectImgType
 
+}
+export type SelectImgType ={
+    color:string;
+    colorCode:string;
+    image:string
 }
 export const ProductCard =({data}:ProductCardProps)=>{
     /*const router = useRouter();*/
@@ -26,9 +34,29 @@ export const ProductCard =({data}:ProductCardProps)=>{
         id:data.id,
         name:data.name,
         brand:data.brand,
-        quantity:1,
+        quantity:0,
+        selectedImg:{...data.images[0]},
         price:data.price
+
     });
+    const handleColorSelect = useCallback((value:SelectImgType)=>{
+        setCardProduct((prev)=>{
+            return {...prev,selectedImg:value};
+        })
+    },[cardProduct.selectedImg])
+    const handleQtyIncrease = useCallback(()=>{
+        setCardProduct((prev)=>{
+            return {...prev,quantity:++prev.quantity};
+        })
+    },[cardProduct])
+    const handleQtyDecrease = useCallback(()=>{
+        if(cardProduct.quantity < 1){
+            return;
+        }
+        setCardProduct((prev)=>{
+            return {...prev,quantity:--prev.quantity};
+        })
+    },[])
     return(
         <div /*onClick={()=>router.push(`/product/${data.id}`)}*/ className="col-span-1 cursor-pointer border-[1.2px]
             border-slate-200 bg-slate-50 rounded-sm p-2 transition
@@ -51,8 +79,11 @@ export const ProductCard =({data}:ProductCardProps)=>{
                     {data.inStock ? "In Stock":"Out of Stock"}
 
                 </div>
-                <div>Quantity</div>
-                <div>Add to Cart</div>
+                <SetQuantity cartProduct={cardProduct} handleQtyIncrease={handleQtyIncrease} handleQtyDecrease={handleQtyDecrease}/>
+                <div className="max-w-{300px}">
+                    <Button label="Add To Cart" onClick={()=>{}}></Button>
+                </div>
+
             </div>
         </div>
 
