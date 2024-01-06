@@ -59,7 +59,7 @@ export const ProductCard =({data}:ProductCardProps)=>{
                 setIsProductInCart(true)
             }
         }
-    },[cartProducts])
+    },[cartProducts, data.id])
 
     const handleColorSelect = useCallback((value:SelectImgType)=>{
         setCardProduct((prev)=>{
@@ -109,13 +109,13 @@ export const ProductCard =({data}:ProductCardProps)=>{
                     </p>
                     <Horizontal/>
                     <div className="max-w-{300px}">
-                        <Button label="View Cart" onClick={()=>{router.push("/cart")}}/>
+                        <Button outline label="View Cart" onClick={()=>{router.push("/cart")}}/>
                     </div>
                 </> :<>
                     <SetQuantity cartProduct={cardProduct} handleQtyIncrease={handleQtyIncrease} handleQtyDecrease={handleQtyDecrease}/>
                     <Horizontal/>
                     <div className="max-w-{300px}">
-                        <Button label="Add To Cart" onClick={()=>handleAddProductToCart(cardProduct)}></Button>
+                        <Button outline label="Add To Cart" onClick={()=>handleAddProductToCart(cardProduct)}></Button>
                     </div>
                 </> }
 
