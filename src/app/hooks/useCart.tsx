@@ -118,7 +118,7 @@ export const CartContextProvider =(props:Props)=>{
         localStorage.setItem("eShopCartItem",JSON.stringify(null))
 
 
-    },[cartProducts])
+    },[])
 
     const value= {
         cartTotalQty,

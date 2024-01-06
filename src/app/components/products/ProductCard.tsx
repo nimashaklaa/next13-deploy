@@ -61,16 +61,11 @@ export const ProductCard =({data}:ProductCardProps)=>{
         }
     },[cartProducts, data.id])
 
-    const handleColorSelect = useCallback((value:SelectImgType)=>{
-        setCardProduct((prev)=>{
-            return {...prev,selectedImg:value};
-        });
-    },[cardProduct.selectedImg]);
     const handleQtyIncrease = useCallback(()=>{
         setCardProduct((prev)=>{
             return {...prev,quantity:++prev.quantity};
         })
-    },[cardProduct])
+    },[])
     const handleQtyDecrease = useCallback(()=>{
         if(cardProduct.quantity < 1){
             return;
@@ -78,7 +73,7 @@ export const ProductCard =({data}:ProductCardProps)=>{
         setCardProduct((prev)=>{
             return {...prev,quantity:--prev.quantity};
         })
-    },[])
+    },[cardProduct.quantity])
     return(
         <div /*onClick={()=>router.push(`/product/${data.id}`)}*/ className="col-span-1 cursor-pointer border-[1.2px]
             border-slate-200 bg-slate-50 rounded-sm p-2 transition
