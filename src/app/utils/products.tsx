@@ -1,12 +1,11 @@
 export const products = [
     {
         id: "64a654593e91b8e73a351e9b",
-        name: "Womens Wearings",
-        description: "Short description",
-        price: 2999,
-        brand: "Emerald",
-        category: "Women",
-        inStock: false,
+        name: "Tops",
+        price: 1500,
+        brand: "ZigZag",
+        category: "Womens Wearings",
+        inStock: true,
         images: [
             {
                 color: "White",
@@ -14,14 +13,55 @@ export const products = [
                 image:
                     "/ladies_dress.jpg",
             },
+        ],
+    },
+    {
+        id: "64a654593e91b8e73a351f9b",
+        name: "SleeveLess Frocks",
+        price: 2500,
+        brand: "ZigZag",
+        category: "Womens Wearings",
+        inStock: false,
+        images: [
             {
-                color: "Gray",
-                colorCode: "#808080",
+                color: "Blue",
+                colorCode: "#FFFFFF",
                 image:
-                    "/ladies-dress.jpg",
+                    "/SFW.jpg",
             },
         ],
-        reviews: [],
+    },
+    {
+        id: "64a654693e91b8e73a351e9b",
+        name: "Formal Ware Office Ware",
+        price: 4500,
+        brand: "Fashion Bug",
+        category: "Womens Wearings",
+        inStock: true,
+        images: [
+            {
+                color: "White",
+                colorCode: "#FFFFFF",
+                image:
+                    "/Owp.jpg",
+            },
+        ],
+    },
+    {
+        id: "64a653593e91b8e73a351e9b",
+        name: "T-Shirts",
+        price: 1550,
+        brand: "Saman Mal",
+        category: "Womens Wearings",
+        inStock: true,
+        images: [
+            {
+                color: "White",
+                colorCode: "#FFFFFF",
+                image:
+                    "/T-Shirts.jpg",
+            },
+        ],
     },
     {
         id: "64a4ebe300900d44bb50628a",
@@ -40,7 +80,6 @@ export const products = [
                     "/men.jpg",
             },
         ],
-        reviews: [],
     },
     {
         id: "648437b38c44d52b9542e340",
@@ -58,20 +97,7 @@ export const products = [
                 image:
                     "/kids.jpg",
             },
-            {
-                color: "Blue",
-                colorCode: " #0000FF",
-                image:
-                    "/kids.jpg",
-            },
-            {
-                color: "Red",
-                colorCode: "#FF0000",
-                image:
-                    "/kids.jpg",
-            },
         ],
-        reviews: [],
     },
     {
         id: "64a4e9e77e7299078334019f",
@@ -90,7 +116,22 @@ export const products = [
                     "/shoes.jpg",
             },
         ],
-        reviews: [],
+    },
+    {
+        id: "64a654593e91b8v73a351e9b",
+        name: "Sleeveless Frock with Lase-kids",
+        price: 500,
+        brand: "Thilakawardhana",
+        category: "Women's Wearings",
+        inStock: true,
+        images: [
+            {
+                color: "Pink",
+                colorCode: "#FFFFFF",
+                image:
+                    "/LK.png",
+            },
+        ],
     },
 
 ];

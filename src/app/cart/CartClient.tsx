@@ -4,9 +4,10 @@ import Link from "next/link";
 import {MdArrowBack} from "react-icons/md";
 import {Button} from "@/app/components/Button";
 import {ItemContent} from "@/app/cart/ItemContent";
+import {FormatPrice} from "@/app/utils/formatPrice";
 
 export const CartClient =()=>{
-    const {cartProducts} = useCart()
+    const {cartProducts,handleClearCart,cartTotalAmount} = useCart()
 
     if(!cartProducts || cartProducts.length === 0){
         return (
@@ -38,12 +39,12 @@ export const CartClient =()=>{
         </div>
         <div className="border-t-[1.5px] border-slate-200 py-4 flex justify-between gap-4">
             <div className="w-[110px]">
-                <Button label="Clear Cart" onClick={()=>{}} outline/>
+                <Button label="Clear Cart" onClick={()=>{handleClearCart()}} outline/>
             </div>
             <div className="text-sm flex flex-col gap-1 items-start ">
                 <div className="flex justify-between gap-20 text-base font-semibold">
                     <span>Subtotal</span>
-                    <span>$10,000</span>
+                    <span>{FormatPrice(cartTotalAmount)}</span>
                 </div>
                 <Button label="Checkout" onClick={() => {
                 }}/>
