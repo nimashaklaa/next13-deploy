@@ -77,8 +77,8 @@ The project is organized as follows:
     - **components/:** Reusable UI components.
     - **hooks/:** Custom React hooks.
     - **providers/:** Context providers.
-  - **pages/:** Next.js pages.
-  - **utils/:** Utility functions.
+    - **pages/:** Next.js pages.
+    - **utils/:** Utility functions.
 - **public/:** Static assets.
 - **styles/:** Global styles and CSS modules.
 - **next.config.js:** Next.js configuration file.
